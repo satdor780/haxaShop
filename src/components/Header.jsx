@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 
 import { NavLink } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 import logo from '../assets/images/logo.png'
 import { useSelector } from 'react-redux';
@@ -38,22 +40,11 @@ export default function Header(){
                         
                         
                             <ul className={burger ? ('nav active') : ('nav')}>
+
                                 <li><NavLink to='/'>Home</NavLink></li>
-
-                                {/* {categories.slice(0, 3).map((category) => (
-                                    <li key={category.id}><NavLink to={`/products/${category.name}`}>{category.name}</NavLink></li>
-                                ))} */}
-
-                                    <li><NavLink to='about'>About Us</NavLink></li>
-                                    <li><NavLink to='products'>Products</NavLink></li>
-                                    <li><NavLink to='contacts'>Contact Us</NavLink></li>
-
-                                {/* <li className="submenu">
-                                    <a >Pages</a>
-                                    <ul>
-                                        
-                                    </ul>
-                                </li> */}
+                                <li><NavLink to='about'>About Us</NavLink></li>
+                                <li><NavLink to='products'>Products</NavLink></li>
+                                <li><NavLink to='contacts'>Contact Us</NavLink></li>
 
                                 <li className="search__input">
                                     <input type="text" value={text} onChange={(current) => {
@@ -70,7 +61,7 @@ export default function Header(){
                                     {text.length > 0 ? (
                                        
                                         currentProducts.length > 0 ? (
-                                            <ul>
+                                            <ul style={{ height: currentProducts.length < 4 ? 'auto' : '200px' }}>
                                                 {currentProducts.map((product) => (
                                                     <li>
                                                         <div className="img"><img src={product.images[0]} alt="img" /></div>
@@ -86,6 +77,10 @@ export default function Header(){
                                     ) : (
                                         null
                                     )}
+                                </li>
+                                <li>
+                                    <FontAwesomeIcon icon={faUser} />
+                                    <FontAwesomeIcon icon={faCartShopping} />
                                 </li>
                             </ul>        
                             <a className={burger ? ('menu-trigger active') : ('menu-trigger')} onClick={() => setBurger(prevBurger => !prevBurger)}>

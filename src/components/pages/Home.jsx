@@ -65,9 +65,11 @@ export default function Home(){
             </div>
         </div>
 
-        <CategorySlider category = "Electronics"/> 
+        {categories.slice(0, 3).map( (category) => <CategorySlider category ={category.name}/> )}
+
+        {/* <CategorySlider category = "Electronics"/> 
         <CategorySlider category = "Shoes"/>        
-        <CategorySlider category = "Clothes"/>                      
+        <CategorySlider category = "Clothes"/>                       */}
 
         <Explore/>
 

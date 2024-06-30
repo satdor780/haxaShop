@@ -61,7 +61,7 @@ export default function Products(){
                 </div>
             </div>
 
-            <section className="section" id="products" key={category}>
+            <section className="section" id="products">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
@@ -73,7 +73,7 @@ export default function Products(){
                     </div>
                 </div>
                 <div className="container">
-                    <div className="row product__inner">
+                    <div className="row product__inner" key={category}>
 
                         {currentProducsIndex.map(( {id, title, price, images} ) => (
                             <Product_card id={id} title={title} price={price} img={images}/>

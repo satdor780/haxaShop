@@ -12,7 +12,7 @@ import Home from './components/pages/Home.jsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategories } from './components/redux/categoriesSlice.js'
 import SingleProduct from './components/pages/SiingleProduct.jsx'
-import { getProducts } from './components/redux/productsSlice.js'
+// import { getProducts } from './components/redux/productsSlice.js'
 
 // js files
 
@@ -25,7 +25,7 @@ function App() {
 
   useEffect(() => {
     dispach(getCategories())
-    dispach(getProducts())
+    // dispach(getProducts())
   }, [dispach])
 
   return (
