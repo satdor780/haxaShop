@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { current } from "@reduxjs/toolkit";
+
 
 export default function SingleProduct(){
     
@@ -22,6 +23,10 @@ export default function SingleProduct(){
             SetOrders(prevOrders => prevOrders + 1)
         }
     };
+
+
+   
+    
 
     return(
         <>
