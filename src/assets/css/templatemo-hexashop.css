@@ -2618,6 +2618,20 @@ responsive
   .product__inner div:last-child{
     grid-column: 1/3;
   }
+
+  .user-menu{
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+  .user-menu .user a{
+    margin-right: 0;
+  }
+  .user-menu > div{
+    font-size: 25px;
+  }
+  .user-menu .user span{
+    line-height: 21px;
+  }
   
 }
 

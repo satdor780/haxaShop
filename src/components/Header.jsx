@@ -143,33 +143,34 @@ export default function Header(){
                         
                         </nav>
                     </div>
+                    {userMenu && (
+                        <div className="col-12">
+
+                            <li className="user-menu">
+
+                                <div className="user">
+                                    {logined ? (
+                                        <NavLink to="/profile">
+                                            <FontAwesomeIcon icon={faUser} />
+                                            <span>{userName}</span>
+                                        </NavLink>
+                                    ) : (
+                                        <a>    
+                                            <FontAwesomeIcon icon={faUser} onClick={isOpen}/>
+                                            <span>guest</span>
+                                        </a>  
+                                    )}
+                                </div>
+
+                                <div className="shopping-card"><FontAwesomeIcon icon={faCartShopping} /></div>
+
+                            </li>
+
+                        </div>
+                    )}
                 </div>
         </header>
-        {userMenu && (
-            <div className="col-12">
-
-                <li className="user-menu">
-
-                    <div className="user">
-                        {logined ? (
-                            <NavLink to="/profile">
-                                <FontAwesomeIcon icon={faUser} />
-                                <span>{userName}</span>
-                            </NavLink>
-                        ) : (
-                            <a>    
-                                <FontAwesomeIcon icon={faUser} onClick={isOpen}/>
-                                <span>guest</span>
-                            </a>  
-                        )}
-                    </div>
-
-                    <div className="shopping-card"><FontAwesomeIcon icon={faCartShopping} /></div>
-
-                </li>
-
-            </div>
-        )}
+        
     </>
     )
 }
