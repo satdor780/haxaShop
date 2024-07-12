@@ -1,0 +1,44 @@
+.profile{
+    display: block;
+}
+
+.profile .user{
+    display: flex;
+    margin-top: 150px;
+    align-items: center;
+}
+
+.profile .user .avatar{
+    max-width: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile .user .avatar img{
+    width: 100%;
+}
+
+.profile .user .info{
+    padding-left: 30px;
+}
+
+.profile .user .info span{
+    font-size: 20px;
+    padding-bottom: 10px;
+    display: block;
+}
+
+.profile .user .info p{
+    font-size: 18px;
+    color: cornflowerblue;
+}
+
+
+@media (max-width: 767px){
+    .profile .user{
+        margin-top: 200px;
+    }
+    .profile .user .avatar{
+        max-width: 200px;
+    }
+}

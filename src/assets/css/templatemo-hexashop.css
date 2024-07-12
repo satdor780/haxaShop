@@ -220,11 +220,11 @@ header
 }
 
 .background-header .logo,
-.background-header .main-nav .nav li a {
+.background-header .main-nav .nav li a:not(.user-menu a) {
   color: #1e1e1e!important;
 }
 
-.background-header .main-nav .nav li:hover a {
+.background-header .main-nav .nav li:hover a:not(.user-menu a) {
   color: #2a2a2a!important;
 }
 
@@ -299,7 +299,7 @@ header
   padding-right: 0px;
 }
 
-.header-area .main-nav .nav li a {
+.header-area .main-nav .nav li a:not(.user-menu a) {
   display: block;
   font-weight: 600;
   font-size: 15px;
@@ -315,17 +315,17 @@ header
   letter-spacing: 1px;
 }
 
-.header-area .main-nav .nav li a {
+.header-area .main-nav .nav li a:not(.user-menu a) {
   color: #2a2a2a;
 }
 
-.header-area .main-nav .nav li:hover a,
-.header-area .main-nav .nav li a.active {
+.header-area .main-nav .nav li:hover a:not(.user-menu a),
+.header-area .main-nav .nav li a.active:not(.user-menu a) {
   color: #aaa!important;
 }
 
-.background-header .main-nav .nav li:hover a,
-.background-header .main-nav .nav li a.active {
+.background-header .main-nav .nav li:hover a:not(.user-menu a),
+.background-header .main-nav .nav li a.active:not(.user-menu a) {
   color: #aaa!important;
   opacity: 1;
 }
@@ -541,7 +541,7 @@ header
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1000px) {
   .header-area .main-nav .logo {
     color: #1e1e1e;
   }
@@ -2522,6 +2522,31 @@ responsive
   grid-column: 1/4;
 }
 
+.user-menu{
+  display: flex;
+  margin-top: 10px
+}
+
+.user-menu .user a{
+  margin-right: 7px;
+  display: flex !important;
+  margin-top: 3px;
+  color: #2a2a2a;
+}
+
+.user-menu .user span{
+  font-size: 16px;
+  padding-left: 5px;
+  line-height: 15px;
+  display: block;
+}
+
+.user-menu > div{
+  cursor: pointer;
+  font-size: 17px;
+}
+
+
 @media (max-width: 990px){
   .header-area .main-nav .nav{
     display: grid !important;
@@ -2540,7 +2565,10 @@ responsive
   
 }
 
-@media (max-width: 770px){
+@media (max-width: 1000px){
+  /* .header-area .menu-trigger {
+      display: block !important;
+  } */
   .header-area .main-nav .nav{
     display: none !important;
   }
@@ -2602,4 +2630,7 @@ responsive
     grid-column: auto;
   }
   
+}
+.block{
+  position: fixed;
 }

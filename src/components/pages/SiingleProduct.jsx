@@ -3,8 +3,13 @@ import { useSelector } from "react-redux"
 import { useState, useEffect } from "react"
 import { current } from "@reduxjs/toolkit";
 
+import { useDispatch } from "react-redux";
+import { addToCard } from '../redux/userSlice.js'
+
 
 export default function SingleProduct(){
+
+    const dispatch = useDispatch()
     
     const {id} = useParams();
     const [orders, SetOrders] = useState(1)
@@ -25,7 +30,9 @@ export default function SingleProduct(){
     };
 
 
-   
+   const addItemToCard = () => {
+    dispatch(addToCard({product, orders}))
+   }
     
 
     return(
@@ -77,7 +84,12 @@ export default function SingleProduct(){
                             </div>
                             <div className="total">
                                 <h4>Total: ${product.price * orders}</h4>
-                                <div className="main-border-button"><a href="#">Add To Cart</a></div>
+                                <div className="main-border-button">
+                                    <a 
+                                    href="#"
+                                    onClick={addItemToCard}
+                                    >Add To Cart</a>
+                                </div>
                             </div>
                         </div>
                     </div>

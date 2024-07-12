@@ -1,0 +1,41 @@
+.contact-us{
+    margin-top: 0 !important;
+    padding: 20px 30px !important;
+    border: none !important;
+}
+
+.contact-us .row{
+    display: block;
+}
+
+.contact-us .row .input__container{
+    margin-bottom: 15px;
+}
+
+.contact-us form button{
+    width: 200px !important;
+}
+
+.contact-us form h2{
+    padding: 10px 0 20px 0;
+}
+
+.contact-us form span{
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.toggle-form p{
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+}
+
+.toggle-form pre{
+    padding-left: 4px;
+    color: royalblue;
+    cursor: pointer;
+    font-size: 13px;
+}

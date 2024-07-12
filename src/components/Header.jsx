@@ -5,7 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 import logo from '../assets/images/logo.png'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Modal } from './modal/Modal'
+import { SignUpForm } from './Form/SignUpForm'
+import { toggleModal } from './redux/userSlice'
+import { Login } from './Form/Login'
 
 export default function Header(){
 
@@ -13,6 +17,15 @@ export default function Header(){
     const [products, SetProducts] = useState([]);
     const [currentProducts, setCurrentProducts] = useState([])
     const [burger, setBurger] = useState(false)
+
+    let userMenu = window.innerWidth < 1000
+    console.log(userMenu)
+
+    // const [modalLogin, setModalLogin] = useState(false)
+
+    // const modalLoginClose = () => {
+    //     setModalLogin(false)
+    // }
 
     const ProductsRedux = useSelector((state) => state.products.products);
     const categories = useSelector(state => state.categories.categories); 
@@ -28,7 +41,31 @@ export default function Header(){
         setCurrentProducts(searchProducts);
     }
 
+    const dispatch = useDispatch()
+    const isOpen = () => {
+        dispatch(toggleModal(true))
+    }
+
+    const closeBurger = () => {
+        setBurger(false)
+    }
+
+    // useEffect(() => {
+    //     if (window.innerWidth < 1000) {
+    //         userMenu = false
+    //     }
+    //     console.log(userMenu)
+    // }, [])
+
+    const modalType = useSelector(state => state.user.formType.payload)
+    const logined = useSelector(state => state.user.userState)
+    const userName = useSelector(state => state.user.user.name)
+
     return(
+       <>
+        <Modal>
+            {modalType == 'signUp' ? (<SignUpForm />): (<Login />)}
+        </Modal>
         <header className="header-area header-sticky">
             <div className="container">
                     <div className="col-12">
@@ -41,10 +78,10 @@ export default function Header(){
                         
                             <ul className={burger ? ('nav active') : ('nav')}>
 
-                                <li><NavLink to='/'>Home</NavLink></li>
-                                <li><NavLink to='about'>About Us</NavLink></li>
-                                <li><NavLink to='products'>Products</NavLink></li>
-                                <li><NavLink to='contacts'>Contact Us</NavLink></li>
+                                {/* <li><NavLink to='/'>Home</NavLink></li> */}
+                                <li><NavLink to='about'  onClick={closeBurger} >About Us</NavLink></li>
+                                <li><NavLink to='products' onClick={closeBurger} >Products</NavLink></li>
+                                <li><NavLink to='contacts' onClick={closeBurger} >Contact Us</NavLink></li>
 
                                 <li className="search__input">
                                     <input type="text" value={text} onChange={(current) => {
@@ -66,7 +103,7 @@ export default function Header(){
                                                     <li>
                                                         <div className="img"><img src={product.images[0]} alt="img" /></div>
                                                         
-                                                        <NavLink onClick={() => setBurger(prevBurger => !prevBurger)} to={`/products/product/${product.id}`}>{product.title}</NavLink>
+                                                        <NavLink onClick={closeBurger} to={`/products/product/${product.id}`}>{product.title}</NavLink>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -78,10 +115,27 @@ export default function Header(){
                                         null
                                     )}
                                 </li>
-                                <li>
-                                    <FontAwesomeIcon icon={faUser} />
-                                    <FontAwesomeIcon icon={faCartShopping} />
-                                </li>
+                                {!userMenu && (
+                                    <li className="user-menu">
+
+                                        <div className="user">
+                                            {logined ? (
+                                                <NavLink to="/profile">
+                                                    <FontAwesomeIcon icon={faUser} />
+                                                    <span>{userName}</span>
+                                                </NavLink>
+                                            ) : (
+                                                <a>    
+                                                    <FontAwesomeIcon icon={faUser} onClick={isOpen}/>
+                                                    <span>guest</span>
+                                                </a>  
+                                            )}
+                                        </div>
+
+                                        <div className="shopping-card"><FontAwesomeIcon icon={faCartShopping} /></div>
+                                        
+                                    </li>
+                                )}
                             </ul>        
                             <a className={burger ? ('menu-trigger active') : ('menu-trigger')} onClick={() => setBurger(prevBurger => !prevBurger)}>
                                 <span>Menu</span>
@@ -91,5 +145,31 @@ export default function Header(){
                     </div>
                 </div>
         </header>
+        {userMenu && (
+            <div className="col-12">
+
+                <li className="user-menu">
+
+                    <div className="user">
+                        {logined ? (
+                            <NavLink to="/profile">
+                                <FontAwesomeIcon icon={faUser} />
+                                <span>{userName}</span>
+                            </NavLink>
+                        ) : (
+                            <a>    
+                                <FontAwesomeIcon icon={faUser} onClick={isOpen}/>
+                                <span>guest</span>
+                            </a>  
+                        )}
+                    </div>
+
+                    <div className="shopping-card"><FontAwesomeIcon icon={faCartShopping} /></div>
+
+                </li>
+
+            </div>
+        )}
+    </>
     )
 }
