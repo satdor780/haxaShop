@@ -32,6 +32,7 @@ export default function SingleProduct(){
 
    const addItemToCard = () => {
     dispatch(addToCard({product, orders}))
+    console.log({product, orders})
    }
     
 

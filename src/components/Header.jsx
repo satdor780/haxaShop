@@ -19,7 +19,6 @@ export default function Header(){
     const [burger, setBurger] = useState(false)
 
     let userMenu = window.innerWidth < 1000
-    console.log(userMenu)
 
     // const [modalLogin, setModalLogin] = useState(false)
 
@@ -116,7 +115,7 @@ export default function Header(){
                                     )}
                                 </li>
                                 {!userMenu && (
-                                    <li className="user-menu">
+                                    <li className={burger ? 'none': 'user-menu'}>
 
                                         <div className="user">
                                             {logined ? (
@@ -125,15 +124,21 @@ export default function Header(){
                                                     <span>{userName}</span>
                                                 </NavLink>
                                             ) : (
-                                                <a>    
-                                                    <FontAwesomeIcon icon={faUser} onClick={isOpen}/>
+                                                <a onClick={isOpen}>    
+                                                    <FontAwesomeIcon icon={faUser}/>
                                                     <span>guest</span>
                                                 </a>  
                                             )}
                                         </div>
 
-                                        <div className="shopping-card"><FontAwesomeIcon icon={faCartShopping} /></div>
-                                        
+                                        <div className="shopping-card">
+
+                                            <NavLink to="/cart">
+                                                <FontAwesomeIcon icon={faCartShopping} />
+                                            </NavLink>
+
+                                        </div>
+                                                                                
                                     </li>
                                 )}
                             </ul>        
@@ -146,7 +151,7 @@ export default function Header(){
                     {userMenu && (
                         <div className="col-12">
 
-                            <li className="user-menu">
+                            <li className={burger ? 'none': 'user-menu'}>
 
                                 <div className="user">
                                     {logined ? (
@@ -155,14 +160,20 @@ export default function Header(){
                                             <span>{userName}</span>
                                         </NavLink>
                                     ) : (
-                                        <a>    
-                                            <FontAwesomeIcon icon={faUser} onClick={isOpen}/>
+                                        <a onClick={isOpen}>    
+                                            <FontAwesomeIcon icon={faUser}/>
                                             <span>guest</span>
                                         </a>  
                                     )}
                                 </div>
 
-                                <div className="shopping-card"><FontAwesomeIcon icon={faCartShopping} /></div>
+                                <div className="shopping-card">
+
+                                    <NavLink to="/cart">
+                                        <FontAwesomeIcon icon={faCartShopping} />
+                                    </NavLink>
+                                   
+                                </div>
 
                             </li>
 

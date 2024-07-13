@@ -48,12 +48,16 @@ export const userSlice = createSlice({
             const existingCard = newCard.find(card => card.id === payload.product.id);
 
             if (existingCard) {
+                console.log('eto ', existingCard.quantity)
                 existingCard.quantity += payload.orders;
             } else {
                 newCard.push({ ...payload.product, quantity: payload.orders });
             }
 
             state.card = newCard;
+        },
+        removeCart: (state, {payload}) => {
+            state.card = state.card.filter((item) => item.id !== payload);
         },
         toggleModal: (state, payload) =>{
             state.showForm = payload
@@ -86,7 +90,7 @@ export const userSlice = createSlice({
       },
 })
 
-export const {addToCard, toggleModal, toggleModalType} = userSlice.actions;
+export const {addToCard, toggleModal, removeCart, toggleModalType} = userSlice.actions;
 
 export default userSlice.reducer;
 

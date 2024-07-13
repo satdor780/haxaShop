@@ -14,6 +14,7 @@ import { getCategories } from './components/redux/categoriesSlice.js'
 import SingleProduct from './components/pages/SiingleProduct.jsx'
 import ScrollToTop from './components/ScroolToTop.jsx'
 import { Profile } from './components/pages/Profile/Profile.jsx'
+import { Cart } from './components/pages/Cart/Cart.jsx'
 // import { getProducts } from './components/redux/productsSlice.js'
 
 // js files
@@ -42,6 +43,7 @@ function App() {
                   <Route path='/contacts' element={<Contacts/>}/>
                   <Route path='/products/' exact element={<Products/>}/>
                   <Route path='/profile/' exact element={<Profile/>}/>
+                  <Route path='/cart/' exact element={<Cart/>}/>
                   <Route path='/products/:category' element={<Products/>}/>
                   <Route path='/products/product/:id' element={<SingleProduct/>}/>
                 </Routes>

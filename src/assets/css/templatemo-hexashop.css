@@ -563,9 +563,9 @@ header
   .header-area .container {
     padding: 0px;
   }
-  .header-area .logo {
+  /* .header-area .logo {
     margin-left: 30px;
-  }
+  } */
   .header-area .menu-trigger {
     display: block !important;
   }
@@ -2534,6 +2534,10 @@ responsive
   color: #2a2a2a;
 }
 
+.user-menu .shopping-card a{
+  color: #2a2a2a !important;
+}
+
 .user-menu .user span{
   font-size: 16px;
   padding-left: 5px;
@@ -2632,6 +2636,12 @@ responsive
   .user-menu .user span{
     line-height: 21px;
   }
+  .header-area .main-nav .menu-trigger{
+    top: 25px;
+  }
+  .header-area .main-nav .logo{
+    line-height: 90px;
+  }
   
 }
 
@@ -2647,4 +2657,7 @@ responsive
 }
 .block{
   position: fixed;
+}
+.none{
+  display: none;
 }
