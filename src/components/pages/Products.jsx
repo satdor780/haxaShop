@@ -75,8 +75,8 @@ export default function Products(){
                 <div className="container">
                     <div className="row product__inner" key={category}>
 
-                        {currentProducsIndex.map(( {id, title, price, images} ) => (
-                            <Product_card id={id} title={title} price={price} img={images}/>
+                        {currentProducsIndex.map(( {id, title, price, images, category} ) => (
+                            <Product_card id={id} title={title} price={price} images={images} category={category}/>
                         ))}
                         
                         <Pagination paginate={paginate} products={prods} viewProducts={viewProducts}/>

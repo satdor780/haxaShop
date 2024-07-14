@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import './login.css'
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { signIn, toggleModalType } from "../redux/userSlice"
+import { useLocalStorage } from "../utils/useLocalStorage.jsx"
 
 export const Login = () => {
+
     const dispatch = useDispatch()
 
     const [email, setEmail] = useState('')
@@ -13,11 +15,14 @@ export const Login = () => {
     const [emailErr, setEmailErr] = useState(false)
     const [passwordErr, setPasswordErr] = useState(false)
 
+    // const [userLogined, setUserLogined] = useLocalStorage('user')
+    
+
     const emailHandler = (e) => {
         setEmail(e.target.value)
         e.target.value.match(
             /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        ) ? setEmailErr(false): setEmailErr('err')
+        ) ? setEmailErr(false): setEmailErr('Некорректный email')
     }
 
     const passwordHandler = (e) => {
@@ -25,14 +30,16 @@ export const Login = () => {
         setPassword(passwordValue);
     
         if (passwordValue.length < 6) {
-            setPasswordErr('err 1');
+            setPasswordErr('Пароль слишком короткий');
         } else if (passwordValue.length > 14) {
-            setPasswordErr('err 2');
+            setPasswordErr('Пароль слишком длинный');
         } else {
             setPasswordErr(false);
         }
     }
 
+
+    
 
 
     const formSubmit = (e) => {
@@ -41,8 +48,19 @@ export const Login = () => {
             "email": email,
             "password": password,
         }
+        
+        // setUserLogined(() => {
+        //     return user
+        // })
+
         dispatch(signIn(user))
+       
     }
+
+    useEffect(() => {
+        // console.log(userLogined)
+        // userLogined ? 
+    }, [])
 
     return(
         <div className="contact-us" onSubmit={formSubmit}>

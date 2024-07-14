@@ -59,6 +59,7 @@ export default function Header(){
     const modalType = useSelector(state => state.user.formType.payload)
     const logined = useSelector(state => state.user.userState)
     const userName = useSelector(state => state.user.user.name)
+    const cartLen = useSelector(state => state.user.card.length)
 
     return(
        <>
@@ -136,6 +137,7 @@ export default function Header(){
                                             <NavLink to="/cart">
                                                 <FontAwesomeIcon icon={faCartShopping} />
                                             </NavLink>
+                                            {cartLen > 0 ? <span>{cartLen}</span>: null}
 
                                         </div>
                                                                                 

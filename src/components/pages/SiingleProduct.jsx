@@ -32,7 +32,6 @@ export default function SingleProduct(){
 
    const addItemToCard = () => {
     dispatch(addToCard({product, orders}))
-    console.log({product, orders})
    }
     
 
@@ -87,7 +86,6 @@ export default function SingleProduct(){
                                 <h4>Total: ${product.price * orders}</h4>
                                 <div className="main-border-button">
                                     <a 
-                                    href="#"
                                     onClick={addItemToCard}
                                     >Add To Cart</a>
                                 </div>

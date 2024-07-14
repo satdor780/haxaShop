@@ -7,10 +7,13 @@ import Newsletter from "../Newsletter";
 import Social from "../Social";
 import Explore from "../Explore";
 import CategorySlider from "../CategorySlider";
+import { useLocalStorage } from "../utils/useLocalStorage";
 
 export default function Home(){
 
     const categories = useSelector(state => state.categories.categories); 
+
+    // const [localValue, setLocalValue] = useLocalStorage('user', {name: john})
 
     return(
       <>
@@ -76,6 +79,8 @@ export default function Home(){
         <Social/>
 
         <Newsletter/>
+
+        {/* <input type="text" value={localValue} onChange={(e) => setLocalValue(e.target.value)}/> */}
 
       </>
     )

@@ -1691,6 +1691,7 @@ Products Page
   display: inline-block;
   color: #2a2a2a;
   background-color: #fff;
+  cursor: pointer;
 }
 
 #products .pagination {
@@ -2538,16 +2539,41 @@ responsive
   color: #2a2a2a !important;
 }
 
+.user-menu .shopping-card{
+  position: relative;
+}
+
+.user-menu .shopping-card span{
+  position: absolute;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: mediumvioletred;
+    top: 15px;
+    /* bottom: 0; */
+    font-size: 12px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
 .user-menu .user span{
   font-size: 16px;
   padding-left: 5px;
-  line-height: 15px;
+  line-height: 17px;
   display: block;
 }
 
 .user-menu > div{
   cursor: pointer;
-  font-size: 17px;
+  font-size: 20px;
+}
+
+.total .main-border-button a{
+  cursor: pointer
 }
 
 
@@ -2634,7 +2660,7 @@ responsive
     font-size: 25px;
   }
   .user-menu .user span{
-    line-height: 21px;
+    line-height: 23px;
   }
   .header-area .main-nav .menu-trigger{
     top: 25px;

@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+// import { useLocalStorage } from "../utils/useLocalStorage.jsx"
+
+// const [userLogined, setUserLogined] = useLocalStorage('user', 'false')
 
 export const signUp = createAsyncThunk(
     'userSlice/signUp',
     async function (payload) {
         try{
-            const res = await axios.post('https://api.escuelajs.co/api/v1/users/', payload)
+            const res = await axios.post('https://api.escuelajs.co/api/v1/users/', payload);
             return res.data
         }catch{
             console.log(err)
@@ -15,22 +19,33 @@ export const signUp = createAsyncThunk(
 )
 
 export const signIn = createAsyncThunk(
-    'userSlice/signIn',
-    async function (payload) {
-        try{
-            const res = await axios.post('https://api.escuelajs.co/api/v1/auth/login', payload)
-            const login = await axios('https://api.escuelajs.co/api/v1/auth/profile', {
-                headers: {
-                    Authorization: `Bearer ${res.access_token}`
-                }
-            })
-            return login.data
-        }catch{
-            console.log(err)
+  'userSlice/signIn',
+  async function (payload, thunkAPI) {
+    try {
+      const res = await axios.post('https://api.escuelajs.co/api/v1/auth/login', payload);
+      const login = await axios('https://api.escuelajs.co/api/v1/auth/profile', {
+        headers: {
+          Authorization: `Bearer ${res.data.access_token}` // Обратите внимание на res.data.access_token
         }
-        
+      });
+      return login.data;
+    } catch (err) {
+      console.log(err);
+      return thunkAPI.rejectWithValue(err.response.data); // Возвращаем ошибку с помощью rejectWithValue
     }
-)
+  }
+);
+
+
+const fulfilled = (state, action) => {
+    state.user = (action.payload);
+    // setUserLogined(() => {
+    //     return payload
+    // })
+    state.userState = true
+    state.showForm = false
+}
+    
 
 export const userSlice = createSlice({
     name: 'user',
@@ -64,46 +79,21 @@ export const userSlice = createSlice({
         },
         toggleModalType: (state, payload) =>{
             state.formType = payload
+        },
+        setUser: (state, payload) => {
+            state.user = payload.payload
+           
+            state.userState = true
         }
     },
      extraReducers: (builder) => {
-        // builder.addCase(getProducts.pending, (state, action) => {
-        //     // Add user to the state array
-        //     // state.categories.push(action.payload);
-        //     state.status = 'loading!'
-        //   })
-        // Add reducers for additional action types here, and handle loading state as needed
-        builder.addCase(signUp.fulfilled, (state, action) => {
-          // Add user to the state array
-          state.user = (action.payload);
-          state.userState = true
-        })
-        builder.addCase(signIn.fulfilled, (state, action) => {
-            // Add user to the state array
-            state.user = (action.payload);
-            state.userState = true
-        })
-        // builder.addCase(getProducts.rejected, (state, action) => {
-        //     // Add user to the state array
-        //     state.status = 'error!'
-        // })
+
+        builder.addCase(signUp.fulfilled, fulfilled)
+        builder.addCase(signIn.fulfilled, fulfilled)
       },
 })
 
-export const {addToCard, toggleModal, removeCart, toggleModalType} = userSlice.actions;
+export const {addToCard, toggleModal, removeCart, toggleModalType, setUser} = userSlice.actions;
 
 export default userSlice.reducer;
-
-
-// export const userSlice = createSlice({
-//     name: 'user',
-//     initialState: {
-//         card: ,
-//     },
-//     reducers: {
-//         addToCard: (state, { payload }) => {
-//             state.card.push(payload);
-//         },
-//     },
-// });
 

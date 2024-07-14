@@ -22,12 +22,12 @@ export const SignUpForm = () => {
         setEmail(e.target.value)
         e.target.value.match(
             /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        ) ? setEmailErr(false): setEmailErr('err')
+        ) ? setEmailErr(false): setEmailErr('Некорректный email')
     }
 
     const nameHandler = (e) => {
         setName(e.target.value)
-        e.target.value.length < 3 ? setNameErr('err'): setNameErr(false)
+        e.target.value.length < 3 ? setNameErr('Слишком короткое имя'): setNameErr(false)
     }
 
     const passwordHandler = (e) => {
@@ -35,9 +35,9 @@ export const SignUpForm = () => {
         setPassword(passwordValue);
     
         if (passwordValue.length < 6) {
-            setPasswordErr('err 1');
+            setPasswordErr('Пароль слишком короткий');
         } else if (passwordValue.length > 14) {
-            setPasswordErr('err 2');
+            setPasswordErr('Пароль слишком длинный');
         } else {
             setPasswordErr(false);
         }

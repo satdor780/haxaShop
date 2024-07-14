@@ -14,7 +14,6 @@ export const Profile = () => {
                     <p>{user.email}</p>
                 </div>
             </div>
-            <div className="card"></div>
         </div>
     )
 }
