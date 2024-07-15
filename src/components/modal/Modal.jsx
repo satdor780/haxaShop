@@ -11,7 +11,6 @@ export const Modal = ({children}) => {
         dispatch(toggleModal(false))
     }
     const isOpen = useSelector(state => state.user.showForm.payload)
-    console.log(isOpen)
     const modalClose = (e) => {
         e.target.classList.contains('modal-wrapper') && isClose()
     }

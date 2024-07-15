@@ -91,7 +91,7 @@ export const SignUpForm = () => {
                     </div>
 
                     <div className="input__container toggle-form">
-                        <p>уже есть аккунт ? <pre onClick={() => dispatch(toggleModalType('signIn'))}>войти</pre></p>
+                        <p>уже есть аккунт ? <span onClick={() => dispatch(toggleModalType('signIn'))}>войти</span></p>
                     </div>
 
                     <div className="input__container">

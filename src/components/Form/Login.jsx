@@ -15,9 +15,6 @@ export const Login = () => {
     const [emailErr, setEmailErr] = useState(false)
     const [passwordErr, setPasswordErr] = useState(false)
 
-    // const [userLogined, setUserLogined] = useLocalStorage('user')
-    
-
     const emailHandler = (e) => {
         setEmail(e.target.value)
         e.target.value.match(
@@ -48,19 +45,10 @@ export const Login = () => {
             "email": email,
             "password": password,
         }
-        
-        // setUserLogined(() => {
-        //     return user
-        // })
 
         dispatch(signIn(user))
        
     }
-
-    useEffect(() => {
-        // console.log(userLogined)
-        // userLogined ? 
-    }, [])
 
     return(
         <div className="contact-us contact-us-react" onSubmit={formSubmit}>
@@ -83,7 +71,7 @@ export const Login = () => {
 
 
                     <div className="input__container toggle-form">
-                        <p>нету аккунта ? <pre onClick={() => dispatch(toggleModalType('signUp'))}>зарегистрировайся</pre></p>
+                        <p>нету аккунта ? <span onClick={() => dispatch(toggleModalType('signUp'))}>зарегистрировайся</span></p>
                     </div>
 
                     <div className="input__container">

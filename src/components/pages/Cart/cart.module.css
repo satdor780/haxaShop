@@ -162,7 +162,7 @@
   .actions{
     display: block;
   }
-  .total{
+  .actions .total{
     display: block;
     margin-bottom: 15px;
   }

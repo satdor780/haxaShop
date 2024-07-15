@@ -79,7 +79,7 @@ export default function Header(){
                             <ul className={burger ? ('nav active') : ('nav')}>
 
                                 {/* <li><NavLink to='/'>Home</NavLink></li> */}
-                                <li><NavLink to='about'  onClick={closeBurger} >About Us</NavLink></li>
+                                <li><NavLink to='about' onClick={closeBurger} >About Us</NavLink></li>
                                 <li><NavLink to='products' onClick={closeBurger} >Products</NavLink></li>
                                 <li><NavLink to='contacts' onClick={closeBurger} >Contact Us</NavLink></li>
 

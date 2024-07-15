@@ -32,9 +32,10 @@
 
 }
 
-.toggle-form pre{
+.contact-us.contact-us-react form .toggle-form span{
     padding-left: 4px;
     color: royalblue;
     cursor: pointer;
     font-size: 13px;
+    margin-top: 0;
 }
