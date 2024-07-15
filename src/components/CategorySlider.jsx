@@ -60,8 +60,8 @@ export default function CategorySlider(category, amout){
                                         outsideChevron
                                         chevronWidth={chevronWidth}
                                         >
-                                            {FilterProduct.map(( {id, title, price, images} ) => (
-                                                <Product_card id={id} title={title} price={price} images={images}/>
+                                            {FilterProduct.map(( {id, title, price, images, category} ) => (
+                                                <Product_card id={id} title={title} price={price} images={images} category={category}/>
                                             ))}
                                 </ItemsCarousel>
                             </div>  

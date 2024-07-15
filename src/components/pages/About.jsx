@@ -9,6 +9,7 @@ import teamMember03 from '../../assets/images/team-member-03.jpg'
 import service01 from '../../assets/images/service-01.jpg'
 import service02 from '../../assets/images/service-02.jpg'
 import service03 from '../../assets/images/service-03.jpg'
+import GoBackButton from "../goBackBtn/GoBackButton";
 
 export default function About(){
 
@@ -27,6 +28,8 @@ export default function About(){
                 </div>
             </div>
         </div>
+
+        <GoBackButton />
     
         <div className="about-us">
             <div className="container">

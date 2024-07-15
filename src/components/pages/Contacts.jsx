@@ -1,7 +1,9 @@
+import GoBackButton from "../goBackBtn/GoBackButton";
+
 export default function Contacts(){
     return(
         <>
-    <div className="page-heading about-page-heading" id="top">
+        <div className="page-heading about-page-heading" id="top">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
@@ -13,6 +15,8 @@ export default function Contacts(){
                 </div>
             </div>
         </div>
+
+        <GoBackButton />
 
         <div className="contact-us">
             <div className="container">

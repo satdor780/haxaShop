@@ -16,8 +16,9 @@ import ScrollToTop from './components/utils/ScroolToTop.jsx'
 import { Profile } from './components/pages/Profile/Profile.jsx'
 import { Cart } from './components/pages/Cart/Cart.jsx'
 import { useLocalStorage } from './components/utils/useLocalStorage.jsx'
-import { setUser } from './components/redux/userSlice.js'
+import { hideNotifications, setUser } from './components/redux/userSlice.js'
 import { getProducts } from './components/redux/productsSlice.js'
+import { Notifications } from './components/Notifications.jsx'
 
 // js files
 
@@ -32,6 +33,12 @@ function App() {
 
   const logined = useSelector(state => state.user.userState);
   const succsessLogin = useSelector(state => state.user.user);
+
+  const showNotifications = useSelector(state => state.user.notifications);
+
+  const closeNotifications = () => {
+    dispach(hideNotifications())
+  }
 
 
   useEffect(() => {
@@ -69,6 +76,8 @@ function App() {
                 </Routes>
                 <Footer />
             </Router>
+
+            <Notifications open={showNotifications} close={closeNotifications}/>
      
       {/* <Newsletter /> */}
       

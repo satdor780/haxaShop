@@ -53,6 +53,7 @@ export const userSlice = createSlice({
         user: [],
         userState: false,
         showForm: false,
+        notifications: false,
         formType: 'signUp',
         card: [],
     },
@@ -68,8 +69,11 @@ export const userSlice = createSlice({
             } else {
                 newCard.push({ ...payload.product, quantity: payload.orders });
             }
-
+            state.notifications = true
             state.card = newCard;
+        },
+        hideNotifications: (state) => {
+            state.notifications = false
         },
         removeCart: (state, {payload}) => {
             state.card = state.card.filter((item) => item.id !== payload);
@@ -93,7 +97,7 @@ export const userSlice = createSlice({
       },
 })
 
-export const {addToCard, toggleModal, removeCart, toggleModalType, setUser} = userSlice.actions;
+export const {addToCard, toggleModal, removeCart, toggleModalType, setUser, hideNotifications} = userSlice.actions;
 
 export default userSlice.reducer;
 

@@ -5,6 +5,8 @@ import { current } from "@reduxjs/toolkit";
 
 import { useDispatch } from "react-redux";
 import { addToCard } from '../redux/userSlice.js'
+import GoBackButton from "../goBackBtn/GoBackButton.jsx";
+// import { Notifications } from "../Notifications.jsx";
 
 
 export default function SingleProduct(){
@@ -13,6 +15,8 @@ export default function SingleProduct(){
     
     const {id} = useParams();
     const [orders, SetOrders] = useState(1)
+
+    // const [successAddCart, SetSuccessAddCart] = useState(false)
     
     let product = useSelector(state => state.products.products.filter(product => product.id == id))
 
@@ -32,9 +36,9 @@ export default function SingleProduct(){
 
    const addItemToCard = () => {
     dispatch(addToCard({product, orders}))
+    // SetSuccessAddCart(true)
    }
     
-
     return(
         <>
             <div className="page-heading" id="top">
@@ -49,9 +53,12 @@ export default function SingleProduct(){
                     </div>
                 </div>
             </div>
-        
 
+            <GoBackButton />
 
+            {/* <Notifications open={successAddCart} close={() => SetSuccessAddCart(false)}>
+                <p>товар добавлен в корзину</p>
+            </Notifications> */}
         
             <section className="section" id="product">
                 <div className="container">
@@ -99,3 +106,4 @@ export default function SingleProduct(){
         </>
     )
 }
+

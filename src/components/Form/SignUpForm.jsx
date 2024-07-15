@@ -61,7 +61,7 @@ export const SignUpForm = () => {
     }
 
     return(
-        <div className="contact-us-react" onSubmit={formSubmit}>
+        <div className="contact-us contact-us-react" onSubmit={formSubmit}>
             <form id="contact">
                 <h2>Sign up</h2>
                 <div className="row">

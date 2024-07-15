@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux"
 import Product_card from "../Product_card"
 import Pagination from '../Pagination';
+import GoBackButton from '../goBackBtn/GoBackButton';
 
 
 
@@ -48,6 +49,7 @@ export default function Products(){
 
     return(
         <>
+            
             <div className="page-heading" id="top">
                 <div className="container">
                     <div className="row">
@@ -60,6 +62,8 @@ export default function Products(){
                     </div>
                 </div>
             </div>
+
+            <GoBackButton />
 
             <section className="section" id="products">
                 <div className="container">
