@@ -26,7 +26,7 @@ export default function Product_card(product){
                             <li onClick={addItemToCard}><a ><i className="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
-                    <img src={images[0]} alt="product-image" style={{width: '100%'}}/>
+                    <img src={images} alt="product-image" style={{width: '100%'}}/>
                 </div>
                 <div className="down-content">
                     <h4>{title}</h4>

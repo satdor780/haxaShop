@@ -63,7 +63,7 @@ export const Login = () => {
     }, [])
 
     return(
-        <div className="contact-us" onSubmit={formSubmit}>
+        <div className="contact-us-react" onSubmit={formSubmit}>
             <form id="contact">
                 <h2>Sign in</h2>
                 <div className="row">

@@ -174,6 +174,8 @@ export default function Header(){
                                     <NavLink to="/cart">
                                         <FontAwesomeIcon icon={faCartShopping} />
                                     </NavLink>
+
+                                    {cartLen > 0 ? <span>{cartLen}</span>: null}
                                    
                                 </div>
 
