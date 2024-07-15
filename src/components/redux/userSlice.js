@@ -64,12 +64,13 @@ export const userSlice = createSlice({
             const existingCard = newCard.find(card => card.id === payload.product.id);
 
             if (existingCard) {
-                console.log('eto ', existingCard.quantity)
+                
                 existingCard.quantity += payload.orders;
             } else {
                 newCard.push({ ...payload.product, quantity: payload.orders });
             }
-            state.notifications = true
+            payload.type !== 'cart' ? state.notifications = true: null
+            
             state.card = newCard;
         },
         hideNotifications: (state) => {

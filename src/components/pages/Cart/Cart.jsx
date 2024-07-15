@@ -51,7 +51,7 @@ export const Cart = () => {
                     <div className={styles.quantity}>
                       <div
                         className={styles.minus}
-                        onClick={() => quantity !== 1 ? dispatch(addToCard(  {product, orders: -1}  )): null}
+                        onClick={() => quantity !== 1 ? dispatch(addToCard(  {product, orders: -1, type: 'cart'}  )): null}
                       >
                         <FontAwesomeIcon icon={faMinus} />
                       </div>
@@ -60,7 +60,7 @@ export const Cart = () => {
 
                       <div
                         className={styles.plus}
-                        onClick={() => dispatch(addToCard(  {product, orders: 1}  ))}
+                        onClick={() => dispatch(addToCard(  {product, orders: 1, type: 'cart'}  ))}
                       >
                         <FontAwesomeIcon icon={faPlus} />
                       </div>

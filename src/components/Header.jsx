@@ -71,7 +71,7 @@ export default function Header(){
                     <div className="col-12">
                         <nav className="main-nav">
 
-                            <NavLink to='/' className="logo">
+                            <NavLink to='/' className="logo" onClick={closeBurger}> 
                                 <img src={logo} />
                             </NavLink>
                         
