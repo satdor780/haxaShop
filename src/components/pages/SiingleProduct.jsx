@@ -14,7 +14,7 @@ export default function SingleProduct(){
     const dispatch = useDispatch()
     
     const {id} = useParams();
-    const [orders, SetOrders] = useState(1)
+    const [orders, setOrders] = useState(1)
 
     // const [successAddCart, SetSuccessAddCart] = useState(false)
     
@@ -26,10 +26,10 @@ export default function SingleProduct(){
 
     const handleClick = (action) => {
         if(action == '-' && orders !== 1){
-            SetOrders(prevOrders => prevOrders - 1)
+            setOrders(prevOrders => prevOrders - 1)
             
         }else if(action == '+'){
-            SetOrders(prevOrders => prevOrders + 1)
+            setOrders(prevOrders => prevOrders + 1)
         }
     };
 

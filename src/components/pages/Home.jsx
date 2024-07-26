@@ -17,6 +17,7 @@ export default function Home(){
 
     return(
       <>
+      {/* <div><a href="https://allcalc.ru/node/1900" data-weight="450px" data-height="400px">Сколько дней осталось до 1 сентября - allcalc</a><script src="https://allcalc.ru/widgets/script.js"></script></div> */}
         <div className="main-banner" id="top">
             <div className="container-fluid">
                 <div className="row">
@@ -74,11 +75,11 @@ export default function Home(){
         <CategorySlider category = "Shoes"/>        
         <CategorySlider category = "Clothes"/>                       */}
 
-        <Explore/>
+        <Explore key={0}/>
 
-        <Social/>
+        <Social key={1}/>
 
-        <Newsletter/>
+        <Newsletter key={2}/>
 
         {/* <input type="text" value={localValue} onChange={(e) => setLocalValue(e.target.value)}/> */}
 

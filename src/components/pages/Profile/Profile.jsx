@@ -8,7 +8,7 @@ export const Profile = () => {
     console.log(user)
     return(
         <>
-            <GoBackButton />
+            <GoBackButton style={{ marginTop: '150px' }} />
             <div className="profile container">
                 <div className="user">
                     <div className="avatar"><img src={user.avatar} alt="avatar" /></div>

@@ -4,7 +4,7 @@
 
 .profile .user{
     display: flex;
-    margin-top: 150px;
+    /* margin-top: 150px; */
     align-items: center;
 }
 
@@ -35,9 +35,9 @@
 
 
 @media (max-width: 767px){
-    .profile .user{
+    /* .profile .user{
         margin-top: 200px;
-    }
+    } */
     .profile .user .avatar{
         max-width: 200px;
     }

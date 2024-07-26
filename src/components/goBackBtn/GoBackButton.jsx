@@ -5,12 +5,12 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 import './backBtn.css'
 
-const GoBackButton = () => {
+const GoBackButton = ({style}) => {
 
   const navigate = useNavigate();
 
   return (
-    <div className="container">
+    <div className="container" style={style}>
       <button onClick={() => navigate(-1)} className="GoBackButton">
           <FontAwesomeIcon icon={faArrowLeft} />
           Назад

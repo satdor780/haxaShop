@@ -24,7 +24,7 @@ export default function Product_card(product){
                 {/* <Notifications open={successAddCart} close={() => SetSuccessAddCart(false)}>
                     <p>товар добавлен в корзину</p>
                 </Notifications> */}
-                <div key={id}>
+                <div>
                     <div className="item">
                         <div className="thumb">
                             <div className="hover-content">

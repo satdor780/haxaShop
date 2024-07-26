@@ -59,11 +59,11 @@ export default function CategorySlider(category, amout){
                                         rightChevron={<button className='slider__button right'>{'>'}</button>}
                                         outsideChevron
                                         chevronWidth={chevronWidth}
-                                        
+                                        key={Math.random()}
                                         >
                                             {FilterProduct.map(( {id, title, price, images, category} ) => (
                                                 <> 
-                                                <Product_card id={id} title={title} price={price} images={images} category={category}/>
+                                                <Product_card id={id} title={title} price={price} images={images} category={category} key={id}/>
                                                 </>
                                             ))}
                                 </ItemsCarousel>

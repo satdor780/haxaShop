@@ -6,7 +6,6 @@ import Pagination from '../Pagination';
 import GoBackButton from '../goBackBtn/GoBackButton';
 
 
-
 export default function Products(){
 
     //paginate
@@ -31,7 +30,7 @@ export default function Products(){
 
     useEffect(() => {
         setProds(filteredProducts);
-    }, [])
+    }, [filteredProducts]);
 
     //pagination
 
@@ -40,16 +39,14 @@ export default function Products(){
     const lastProductsIndex = firstPagination + viewProducts; //до какого продукта 2
     const firstProductsIndex = lastProductsIndex - viewProducts; //с какого продукта 0
 
-    const currentProducsIndex = prods.slice(firstPagination, lastProductsIndex) //продукты с пагинацией ?
+    const currentProducsIndex = prods.slice(firstProductsIndex, lastProductsIndex); //продукты с пагинацией
 
     function paginate(index){
         setFirstPagination(index * viewProducts)
     };
 
-
     return(
         <>
-            
             <div className="page-heading" id="top">
                 <div className="container">
                     <div className="row">
@@ -65,7 +62,7 @@ export default function Products(){
 
             <GoBackButton />
 
-            <section className="section" id="products">
+            <section className="section" id="products" key={category}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
@@ -77,12 +74,12 @@ export default function Products(){
                     </div>
                 </div>
                 <div className="container">
-                    <div className="row product__inner" key={Math.random()}>
+                    <div className="row product__inner">
 
-                        {currentProducsIndex.map(( {id, title, price, images, category} ) => (
-                            <Product_card id={id} title={title} price={price} images={images} category={category}/>
+                        {currentProducsIndex.map(( {id, title, price, category, images} ) => (
+                             <Product_card id={id} title={title} price={price} images={images} category={category} key={id}/>
                         ))}
-                        
+
                         <Pagination paginate={paginate} products={prods} viewProducts={viewProducts}/>
 
                     </div>

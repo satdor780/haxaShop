@@ -9,6 +9,7 @@ export default function Pagination({paginate, products, viewProducts}){
 
     const pagList = products.length / viewProducts;
     const pagNumbers = []
+    
     let pagArrow = false
 
     pagList > 2 ? pagArrow = true : null;
@@ -54,13 +55,13 @@ export default function Pagination({paginate, products, viewProducts}){
                             <a>{number + 1}</a>
                         </li>
                     ))}
-                    
+
                    { pagArrow ? (
                     <li onClick={() => pagNext()}>
                         <a >{'>'}</a>
                     </li>
                    ) : null}
-                   
+
                 </ul>
             </div>
         </div>

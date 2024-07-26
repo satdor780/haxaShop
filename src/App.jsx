@@ -17,7 +17,7 @@ import { Profile } from './components/pages/Profile/Profile.jsx'
 import { Cart } from './components/pages/Cart/Cart.jsx'
 import { useLocalStorage } from './components/utils/useLocalStorage.jsx'
 import { hideNotifications, setUser } from './components/redux/userSlice.js'
-import { getProducts } from './components/redux/productsSlice.js'
+// import { getProducts } from './components/redux/productsSlice.js'
 import { Notifications } from './components/Notifications.jsx'
 
 // js files
@@ -43,7 +43,7 @@ function App() {
 
   useEffect(() => {
     dispach(getCategories())
-    dispach(getProducts())
+    // dispach(getProducts())
 
    if(userLogined && !logined){
     dispach(setUser(userLogined))
