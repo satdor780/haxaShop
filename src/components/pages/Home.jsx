@@ -17,7 +17,6 @@ export default function Home(){
 
     return(
       <>
-      {/* <div><a href="https://allcalc.ru/node/1900" data-weight="450px" data-height="400px">Сколько дней осталось до 1 сентября - allcalc</a><script src="https://allcalc.ru/widgets/script.js"></script></div> */}
         <div className="main-banner" id="top">
             <div className="container-fluid">
                 <div className="row">
@@ -69,22 +68,18 @@ export default function Home(){
             </div>
         </div>
 
-        {categories.slice(0, 3).map( (category) => <CategorySlider category ={category.name}/> )}
+        {categories.slice(0, 3).map( (category) => <CategorySlider category = {category.name} key={category.name}/> )}
 
         {/* <CategorySlider category = "Electronics"/> 
         <CategorySlider category = "Shoes"/>        
         <CategorySlider category = "Clothes"/>                       */}
 
-        <Explore key={0}/>
+        <Explore/>
 
-        <Social key={1}/>
+        <Social/>
 
-        <Newsletter key={2}/>
-
-        {/* <input type="text" value={localValue} onChange={(e) => setLocalValue(e.target.value)}/> */}
+        <Newsletter/>
 
       </>
     )
 }
-
-// sardor20070987654321 sardorasrmidinov@gmail.com

@@ -25,11 +25,10 @@ export default function SingleProduct(){
     const [total, SetTotal] = useState(product.price)
 
     const handleClick = (action) => {
-        if(action == '-' && orders !== 1){
-            setOrders(prevOrders => prevOrders - 1)
-            
-        }else if(action == '+'){
-            setOrders(prevOrders => prevOrders + 1)
+        if (action === '-' && orders > 1) {
+            setOrders(prevOrders => prevOrders - 1);
+        } else if (action === '+') {
+            setOrders(prevOrders => prevOrders + 1);
         }
     };
 
@@ -83,9 +82,30 @@ export default function SingleProduct(){
                                 </div>
                                 <div className="right-content">
                                     <div className="quantity buttons_added">
-                                        <input type="button" value="-" className="minus" onClick={() => handleClick('-')}/>
-                                        <input type="number" step="1" min="1" max="" name="quantity" value={orders} title="Qty" className="input-text qty text" size="4" pattern="" inputmode="" />
-                                        <input type="button" value="+" className="plus"  onClick={() => handleClick('+')}/>
+                                        <input 
+                                            type="button" 
+                                            value="-" 
+                                            className="minus" 
+                                            onClick={() => handleClick('-')} 
+                                        />
+                                        <input 
+                                            type="number"  
+                                            inputMode="numeric" 
+                                            step="1" 
+                                            min="1" 
+                                            max="" 
+                                            name="quantity" 
+                                            value={orders} 
+                                            title="Qty" 
+                                            className="input-text qty text" 
+                                            size="4" 
+                                        />
+                                        <input 
+                                            type="button"  
+                                            value="+" 
+                                            className="plus"  
+                                            onClick={() => handleClick('+')} 
+                                        />
                                     </div>
                                 </div>
                             </div>

@@ -47,31 +47,34 @@ export default function CategorySlider(category, amout){
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12" >
-                        {FilterProduct.length > 0 ? (
-
-                            <div>
-                                <ItemsCarousel
-                                        requestToChangeActive={setActiveItemIndex}
-                                        activeItemIndex={activeItemIndex}
-                                        numberOfCards={mediaReact}
-                                        gutter={20}
-                                        leftChevron={<button className='slider__button left'>{'<'}</button>}
-                                        rightChevron={<button className='slider__button right'>{'>'}</button>}
-                                        outsideChevron
-                                        chevronWidth={chevronWidth}
-                                        key={Math.random()}
-                                        >
-                                            {FilterProduct.map(( {id, title, price, images, category} ) => (
-                                                <> 
-                                                <Product_card id={id} title={title} price={price} images={images} category={category} key={id}/>
-                                                </>
-                                            ))}
-                                </ItemsCarousel>
-                            </div>  
-                            ) : (
-                                // Загрузка данных
-                                <p>Loading...</p>
-                            )}
+                    {FilterProduct.length > 0 ? (
+                        <div>
+                            <ItemsCarousel
+                                requestToChangeActive={setActiveItemIndex}
+                                activeItemIndex={activeItemIndex}
+                                numberOfCards={mediaReact}
+                                gutter={20}
+                                leftChevron={<button className='slider__button left'>{'<'}</button>}
+                                rightChevron={<button className='slider__button right'>{'>'}</button>}
+                                outsideChevron
+                                chevronWidth={chevronWidth}
+                            >
+                                {FilterProduct.map(({ id, title, price, images, category }) => (
+                                    <Product_card 
+                                        key={id} 
+                                        id={id} 
+                                        title={title} 
+                                        price={price} 
+                                        images={images} 
+                                        category={category} 
+                                    />
+                                ))}
+                            </ItemsCarousel>
+                        </div>  
+                    ) : (
+                        // Загрузка данных
+                        <p>Loading...</p>
+                    )}
     
                     </div>
                    
