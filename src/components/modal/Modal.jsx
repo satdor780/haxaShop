@@ -16,12 +16,12 @@ export const Modal = ({children}) => {
     }
     useEffect(() => {
         if (isOpen) {
-            document.body.classList.add('block');
+            document.body.classList.add('lock');
         } else {
-            document.body.classList.remove('block');
+            document.body.classList.remove('lock');
         }
         return () => {
-            document.body.classList.remove('block');
+            document.body.classList.remove('lock');
         };
     }, [isOpen]);
     return(

@@ -2684,8 +2684,10 @@ responsive
   }
   
 }
-.block{
-  position: fixed;
+.lock{
+  margin: 0;
+    height: 100%;
+    overflow: hidden;
 }
 .none{
   display: none;
